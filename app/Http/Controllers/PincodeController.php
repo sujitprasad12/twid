@@ -32,7 +32,7 @@ class PincodeController extends Controller {
 			try {
 				ProcessPincode::dispatch($data)->delay(now()->addSeconds(5));
 			} catch(\Exception $e) {
-				ProcessPincode::dispatch(array_map('utf8_encode', $chunk))->delay(now()->addSeconds(5));
+				ProcessPincode::dispatch(array_map('utf8_encode', $data))->delay(now()->addSeconds(5));
 			}
 		}
 		return true;
